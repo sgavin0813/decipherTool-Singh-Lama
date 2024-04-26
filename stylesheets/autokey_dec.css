@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input,textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0462c7;
+}
+
+#plain-text {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Added styles for tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+}
+
+  /* Added styles for tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+
+  th, td {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  tr:hover {
+    background-color: #f2f2f2;
+  }
+
+  input[type='text'] {
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    line-height: 25px;
+    background-color: transparent;
+  }
+tr:first-child {
+    background-color: #1465ce; /* Change the background color as desired */
+    color: #fdfdfd;
+  }
+tr:first-child input[type='text']{
+    border: 0px;
+    color: #fdfdfd;
+  }
+  .group-title {
+    background-color: #3f3f3f;
+    color: white;
+    padding: 8px 16px;
+    font-weight: bold;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: #474747;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  li a.active {
+    background-color: #04AA6D;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #555;
+  }
+  
+  .logo h3 {
+    color: white;
+    padding: 8px 16px;
+  }
+  .container {
+    margin-left: 260px;
+    width: 80%;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+  }

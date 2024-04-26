@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vegineer Shifter</title>
+    <!-- Include Plotly.js library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/style_shifter.css" />
+  </head>
+  <body>
+    <ul>
+      <li class="logo"><h3>Cipher tool</h3></li>
+    <li class="group-title">Vegineer </li>
+  
+      <li><a  href="Vigenere_encryption.html">Encryptor</a></li>
+      <li><a href="Vigenere_decryption.html">Decryptor</a></li>
+      <li><a href="Vigenere_shifter.html">Vegineer Shifter</a></li>
+      <li><a href="vigenere_depth.html">Vegineer Dept</a></li>
+  
+    <li class="group-title">Autokey</li>
+      <li><a href="autokey_enc.html">Autokey Encryptor</a></li>
+      <li><a href="autokey_decryptor.html">Autokey Extnd. Key Decryptor</a></li>
+
+    <li class="group-title">Running Key</li>
+      <li><a href="crib_drag.html">Crib Dragger</a></li>
+
+      <li class="group-title">Columnar Transposition</li>
+      <li><a href="columnar_encryption.html">Columnar transposition Encryptor</a></li>
+      <li><a href="columnar_decryption.html">Columnar transposition Decryptor</a></li>
+  </ul>
+    <div class="container">
+      <h2 style="color: #007bff; text-align: center">Vigenère Shifter</h2>
+      <div class="list-of-rules" style="margin-left: 20px; margin-bottom: 10px;">
+        <h4>Instructions:</h4>
+        <p style="margin-bottom: 10px;"><strong>1)</strong> Enter Cipher Text</p>
+        <p style="margin-bottom: 10px;"><strong>2)</strong> Press Shift Button</p>
+        <p style="margin-bottom: 10px;"><strong>3)</strong> Graph with the First 100 Shifts Will Be Displayed</p>
+        
+      </div>
+      <textarea id="inputText" rows="5" cols="50" placeholder="Enter Cipher Text Here..."></textarea><br />
+      <button onclick="runShifter_Clicked()">Run Shifter</button><br />
+      <div id="shiftertext"></div>
+      <!-- Use a div as a placeholder for the plot -->
+      <div id="shifterplot_1" style="width: 100%; height: 300px"></div>
+      <div id="shifterplot_2" style="width: 100%; height: 300px"></div>
+    </div>
+    <div class="footer">
+      <p>Created by Nabin Lama and Gavin Singh for CSC 483</p>
+      </div>
+    <script src="scripts/vigenere_shifter.js"></script>
+  </body>
+</html>

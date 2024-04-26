@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+  }
+  
+  .container {
+    margin-left: 400px;
+    width: 80%;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .input-container {
+    margin-bottom: 20px;
+  }
+  
+  .input-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-container input,
+  .input-container textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .input-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .input-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .output-container textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+  }
+  
+  .tooltip {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0; /* Hidden by default */
+  }
+  
+  .chart-container {
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 900px; /* Set maximum width for the chart containers */
+    width: 100%; /* Ensure the chart containers occupy full width */
+    height: auto; /* Allow the height to adjust based on content */
+    overflow: hidden; /* Hide overflowing content */
+  }
+  
+  /* CSS styles for the charts */
+  .chart {
+    width: 100%; /* Ensure the chart occupies full width of its container */
+    height: auto; /* Allow the height to adjust based on content */
+  }
+  
+  .group-title {
+    background-color: #3f3f3f;
+    color: white;
+    padding: 8px 16px;
+    font-weight: bold;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 250px;
+    background-color: #474747;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  li a.active {
+    background-color: #04AA6D;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #555;
+  }
+  
+  .logo h3 {
+    color: white;
+    padding: 8px 16px;
+  }
+  .container {
+    margin-left: 260px;
+    width: 80%;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  } 
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}

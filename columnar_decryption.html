@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Columnar Transposition Decryption</title>
+    <link rel="stylesheet" href="stylesheets/columnar_decryption.css" />
+  </head>
+  <body>
+    <ul>
+      <li class="logo"><h3>Cipher tool</h3></li>
+      <li class="group-title">Vegineer</li>
+
+      <li><a href="Vigenere_encryption.html">Encryptor</a></li>
+      <li><a href="Vigenere_decryption.html">Decryptor</a></li>
+      <li><a href="Vigenere_shifter.html">Vegineer Shifter</a></li>
+      <li><a href="vigenere_depth.html">Vegineer Dept</a></li>
+
+      <li class="group-title">Autokey</li>
+      <li><a href="autokey_enc.html">Autokey Encryptor</a></li>
+      <li><a href="autokey_decryptor.html">Autokey Extnd. Key Decryptor</a></li>
+
+      <li class="group-title">Columnar Transposition</li>
+      <li>
+        <a href="columnar_encryption.html">Columnar transposition Encryptor</a>
+      </li>
+      <li>
+        <a href="columnar_decryption.html">Columnar transposition Decryptor</a>
+      </li>
+    </ul>
+    <div class="container">
+      <h2 style="color: #007bff; text-align: center">
+        Columnar Transposition Decryption
+      </h2>
+      <div style="margin-bottom: 10px">
+        <p style="font-weight: bold; color: red">
+          Assumes that if there are multiple characters, the column
+          corresponding to the last occurrence of the character will have blank
+          spaces (Padding), if any.
+        </p>
+      </div>
+
+      <div class="input-area">
+        <label for="keyword">Enter Keyword:</label>
+        <input type="text" id="keyword" placeholder="Keyword" />
+        <label for="cipher-text">Enter Cipher Text:</label>
+        <textarea id="cipher-text" placeholder="Cipher Text"></textarea>
+        <button onclick="decrypt()">Decrypt</button>
+      </div>
+      <div class="output-area">
+        <label for="plain-text">Decrypted Text:</label>
+        <textarea id="plain-text" readonly></textarea>
+        <div id="table-container"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Created by Nabin Lama and Gavin Singh for CSC 483</p>
+    </div>
+    <script src="scripts/columnar_decryption.js"></script>
+  </body>
+</html>

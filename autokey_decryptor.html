@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autokey-Extnd. by Ciphertext Decryptor</title>
+    <link rel="stylesheet" href="stylesheets/autokey_dec.css" />
+  </head>
+  <body>
+    <ul>
+      <li class="logo"><h3>Cipher tool</h3></li>
+    <li class="group-title">Vegineer </li>
+  
+      <li><a  href="Vigenere_encryption.html">Encryptor</a></li>
+      <li><a href="Vigenere_decryption.html">Decryptor</a></li>
+      <li><a href="Vigenere_shifter.html">Vegineer Shifter</a></li>
+      <li><a href="vigenere_depth.html">Vegineer Dept</a></li>
+  
+    <li class="group-title">Autokey</li>
+      <li><a href="autokey_enc.html">Autokey Encryptor</a></li>
+      <li><a href="autokey_decryptor.html">Autokey Extnd. Key Decryptor</a></li>
+
+    <li class="group-title">Running Key</li>
+      <li><a href="crib_drag.html">Crib Dragger</a></li>
+
+      <li class="group-title">Columnar Transposition</li>
+      <li><a href="columnar_encryption.html">Columnar transposition Encryptor</a></li>
+      <li><a href="columnar_decryption.html">Columnar transposition Decryptor</a></li>
+  </ul>
+    <div class="container">
+      <h2 style="color: #007bff; text-align: center;">Autokey-Extnd. by Ciphertext Decryptor</h2>
+      <div style="margin-bottom: 10px; padding: 20px;">
+        <p style="font-weight: bold;">1. Enter cipher text</p>
+        <p style="font-weight: bold;">2. Enter Length of Presumed Keyword</p>
+        <p style="font-weight: bold;">3. Table will be displayed showing Cipher Text, Crib, and Plain Text.</p>
+        <p style="font-weight: bold;">4. Crib and Plain Text can be edited. Please hit enter to see changes made.</p>
+        <p style="font-weight: bold;">5. Note: Every time "Length of Presumed Keyword" is changed, "Decrypt" button needs to be pressed.</p>
+    </div>
+    
+      <div class="input-group">
+        <label for="cipher-text">Cipher Text:</label>
+        <textarea type="text" id="cipher-text" placeholder="Enter cipher text"  rows="5"></textarea>
+      </div>
+      <div class="input-group">
+        <label for="keyword-length">Length of Presumed Keyword(Integers):</label>
+        <input
+          type="number"
+          id="keyword-length"
+          placeholder="Enter keyword length"
+        />
+      </div>
+      <button id="decrypt-btn" onclick="decryption()">Decrypt</button>
+      <div class="input-group">
+      <br /><br />
+      <div id="tableContainer"></div>
+    </div>
+    <div class="footer">
+      <p>Created by Nabin Lama and Gavin Singh for CSC 483</p>
+      </div>
+    <script src="scripts/autokey_dec.js"></script>
+  </body>
+</html>

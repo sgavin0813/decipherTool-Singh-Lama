@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Columnar Transposition Cipher</title>
+    <link rel="stylesheet" href="stylesheets/columar_enc.css" />
+  </head>
+  <body>
+    <ul>
+      <li class="logo"><h3>Cipher tool</h3></li>
+      <li class="group-title">Vegineer</li>
+
+      <li><a href="Vigenere_encryption.html">Encryptor</a></li>
+      <li><a href="Vigenere_decryption.html">Decryptor</a></li>
+      <li><a href="Vigenere_shifter.html">Vegineer Shifter</a></li>
+      <li><a href="vigenere_depth.html">Vegineer Dept</a></li>
+
+      <li class="group-title">Autokey</li>
+      <li><a href="autokey_enc.html">Autokey Encryptor</a></li>
+      <li><a href="autokey_decryptor.html">Autokey Extnd. Key Decryptor</a></li>
+
+      <li class="group-title">Running Key</li>
+      <li><a href="crib_drag.html">Crib Dragger</a></li>
+
+      <li class="group-title">Columnar Transposition</li>
+      <li>
+        <a href="columnar_encryption.html">Columnar transposition Encryptor</a>
+      </li>
+      <li>
+        <a href="columnar_decryption.html">Columnar transposition Decryptor</a>
+      </li>
+    </ul>
+    <div class="container">
+      <h2 style="color: #007bff; text-align: center">
+        Columnar Transposition Cipher
+      </h2>
+      <div>
+        <p style="font-weight: bold; color: red">
+          Assumes that if there are multiple characters, the column
+          corresponding to the last occurrence of the character will have blank
+          spaces (Padding), if any.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Encryption</h2>
+        <label for="input-string">Text to Encrypt:</label>
+        <textarea id="input-string"></textarea>
+
+        <label for="keyword">Keyword:</label>
+        <input type="text" id="keyword" />
+
+        <button id="encrypt-button" onclick="encrypt()">Encrypt</button>
+        <div id="result">
+          <label for="output">Cipher Text(5-Letter):</label>
+          <input type="text" id="output" />
+          <div id="table-container"></div>
+        </div>
+      </div>
+      <div class="footer">
+        <p>Created by Nabin Lama and Gavin Singh for CSC 483</p>
+      </div>
+    </div>
+    <script src="scripts/columnar_encryption.js"></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autokey-Extnd. by Ciphertext Decryptor</title>
+    <link rel="stylesheet" href="stylesheets/autokey_enc.css" />
+  </head>
+  <body>
+    <ul>
+      <li class="logo"><h3>Cipher tool</h3></li>
+      <li class="group-title">Vegineer</li>
+
+      <li><a href="Vigenere_encryption.html">Encryptor</a></li>
+      <li><a href="Vigenere_decryption.html">Decryptor</a></li>
+      <li><a href="Vigenere_shifter.html">Vegineer Shifter</a></li>
+      <li><a href="vigenere_depth.html">Vegineer Dept</a></li>
+
+      <li class="group-title">Autokey</li>
+      <li><a href="autokey_enc.html">Autokey Encryptor</a></li>
+      <li><a href="autokey_decryptor.html">Autokey Extnd. Key Decryptor</a></li>
+
+      <li class="group-title">Running Key</li>
+      <li><a href="crib_drag.html">Crib Dragger</a></li>
+
+      <li class="group-title">Columnar Transposition</li>
+      <li><a href="columnar_encryption.html">Columnar transposition Encryptor</a></li>
+      <li><a href="columnar_decryption.html">Columnar transposition Decryptor</a></li>
+    </ul>
+    <div class="container">
+      <h2 style="color: #007bff; text-align: center">Autokey Encryptor</h2>
+      <div class="input-group">
+        <label for="plain-text">Plain Text:</label>
+        <textarea
+          type="text"
+          id="plain-text"
+          placeholder="Enter cipher text"
+          rows="5"
+        ></textarea>
+      </div>
+      <div class="input-group">
+        <label for="keyword">Keyword</label>
+        <input type="text" id="keyword" placeholder="Enter keyword" />
+        <div class="input-group">
+          <label for="select-option">Select an option:</label>
+          <select id="select-option">
+            <option value="byplainText">Extend by Plain Text</option>
+            <option value="bycipherText">Extend by Cipher Text</option>
+          </select>
+        </div>
+      </div>
+      <button id="encrypt-btn" onclick="encrypt()">Encrypt</button>
+      <div class="outout-group">
+        <label for="cipher-text">Cipher Text</label>
+        <input type="text" id="cipher-text" placeholder="Enter Ciphertext" />
+      </div>
+    </div>
+    <div class="footer">
+      <p>Created by Nabin Lama and Gavin Singh for CSC 483</p>
+  </div>
+    <script src="scripts/autokey_enc.js"></script>
+  </body>
+</html>
