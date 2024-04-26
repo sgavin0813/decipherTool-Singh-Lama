@@ -4,15 +4,6 @@ body {
     margin: 0;
   }
   
-  .container {
-    margin-left: 400px;
-    width: 80%;
-    padding: 16px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 100px;
-  }
   
   h1 {
     text-align: center;
