@@ -42,11 +42,12 @@ alphabetMap = {
   Z: 25,
 };
 function subtractElements(key, ciphertext) {
+    console.log("In substract Function")
   let result = "";
   for (let i = 0; i < key.length; i++) {
-    let char1 = key[i].toUpperCase();
-    let char2 = ciphertext[i].toUpperCase();
-
+    let char1 = key[i];
+    let char2 = ciphertext[i];
+  
     if (char1 === "#" || char1 === "#") {
       result += "_";
     } else {
@@ -95,7 +96,7 @@ function createTables(inputString1, inputString2, inputString3) {
         (row === 0
           ? "<b>Cipher Text</b>"
           : row === 1
-          ? "<b>Presumed Key</b>"
+          ? "<b>Crib</b>"
           : "<b>Plain Text</b>") +
         "</td>";
       for (var i = 0; i < rowData.length; i++) {
@@ -162,47 +163,44 @@ function cellInputChanged(input) {
   document.getElementById(uniqueId_2).value;
   document.getElementById(uniqueId_3).value;
 }
+
 var firstTime = true;
 function decryption(buttonPressed) {
   cipherText = removeNonAlphaChars(cipherTextElement.value);
-  
+
   if (buttonPressed == "shiftRight") {
-    if(!firstTime){
-      cribTextInitial = removeNonAlphaChars(cribElement.value);
-      cribText = "_" + cribTextInitial;
-    }
-    else{
-      firstTime = false
+    if (!firstTime) {
+      cribText = "_" + cribText;
+    } else {
+      firstTime = false;
       cribText = removeNonAlphaChars(cribElement.value);
     }
-    cribElement.value = cribText;
-
-    if(cribText.length<= cipherText.length){
-      plainText = subtractElements(cribText, cipherText);
-    }
-
-    while (cipherText.length != plainText.length || cipherText.length != cribText.length) {
-      if (cipherText.length != plainText.length) {
-        plainText += "_";
-      }
-      if (cipherText.length != cribText.length) {
-        cribText += "_";
-      }
-    }
-  
-    createTables(cipherText, cribText, plainText);
-  } else if (buttonPressed == "shiftLeft") {
-    cribText = cribText.substring(1)
-    cribElement.value = cribText;
+    console.log("cribText" + cribText)
+    console.log("cipherText" + cipherText)
+    // Calculate plainText without placeholders
     plainText = subtractElements(cribText, cipherText);
 
-    while(cipherText.length != plainText.length){
-      plainText += "_"
-    }
-    while(cipherText.length != cribText.length){
-      cribText += "_"
-    }
+    // Update cribText and plainText to ensure consistent lengths
+    const maxLength = Math.max(cipherText.length, cribText.length, plainText.length);
+    cribText = cribText.padEnd(maxLength, "_");
+    plainText = plainText.padEnd(maxLength, "_"); // Or use another default character as needed
+
+    createTables(cipherText, cribText, plainText);
+
+  } else if (buttonPressed == "shiftLeft") {
+    cribText = cribText.substring(1);
+    // Calculate plainText without placeholders
+    plainText = subtractElements(cribText, cipherText);
+    // Ensure consistent lengths 
+    const maxLength = Math.max(cipherText.length, cribText.length, plainText.length);
+    cribText = cribText.padEnd(maxLength, "_");
+    plainText = plainText.padEnd(maxLength, "_"); // Or use another default character as needed
 
     createTables(cipherText, cribText, plainText);
   }
+}
+
+function reloadPage() {
+  // Reload the page
+  location.reload();
 }

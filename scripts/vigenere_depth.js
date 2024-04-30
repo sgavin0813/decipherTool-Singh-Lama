@@ -9,7 +9,7 @@ function cleanAndUpperCase(cleanedStr) {
 function getInputs() {
   plainText = cleanAndUpperCase(document.getElementById("input-text").value);
   keywordLength = parseInt(document.getElementById("keyword-size").value);
-  table = document.getElementById('myTable')
+  table = document.getElementById("myTable");
 }
 function splitStringIntoSubstrings(str, chunkSize) {
   var substrings = [];
@@ -21,65 +21,77 @@ function splitStringIntoSubstrings(str, chunkSize) {
 
 function generateTableFromMatrix(matrix) {
   // Get reference to the table element
-  let table = document.getElementById('myTable');
+  let table = document.getElementById("myTable");
 
   // Clear existing table content
-  table.innerHTML = '';
+  table.innerHTML = "";
 
   // Iterate through the 2D array and generate table rows and cells
   for (let i = 0; i < matrix.length; i++) {
-      // Create a table row
-      let row = document.createElement('tr');
+    // Create a table row
+    let row = document.createElement("tr");
 
-      // Iterate through the inner arrays (rows) and create table cells
-      for (let j = 0; j < matrix[i].length; j++) {
-          // Create a table cell
-          let cell = document.createElement('td');
+    // Iterate through the inner arrays (rows) and create table cells
+    for (let j = 0; j < matrix[i].length; j++) {
+      // Create a table cell
+      let cell = document.createElement("td");
 
-          // Set the cell content to the current element of the 2D array
-          cell.textContent = matrix[i][j];
+      // Set the cell content to the current element of the 2D array
+      cell.textContent = matrix[i][j];
 
-          // Append the cell to the row
-          row.appendChild(cell);
-      }
+      // Append the cell to the row
+      row.appendChild(cell);
+    }
 
-      // Append the row to the table
-      table.appendChild(row);
+    // Append the row to the table
+    table.appendChild(row);
   }
 }
-
 
 function calculateDepth() {
   getInputs();
   let arraySplit = [];
   if (isMultipleOfLength(plainText, keywordLength)) {
     var result = splitStringIntoSubstrings(plainText, keywordLength);
-    firstRow = []
+    firstRow = [];
 
     for (let i = 0; i < keywordLength; i++) {
-      firstRow.push("Column " + (i+1));
+      firstRow.push("Column " + (i + 1));
     }
-    console.log(firstRow)
-    arraySplit.push(firstRow)
+    console.log(firstRow);
+    arraySplit.push(firstRow);
     for (let i = 0; i < result.length; i++) {
       arraySplit.push(result[i].split(""));
     }
-    generateTableFromMatrix(arraySplit)
+    generateTableFromMatrix(arraySplit);
   } else {
     alert("The string does not occur in multiples of the keyword.");
     var result = splitStringIntoSubstrings(plainText, keywordLength);
-    firstRow = []
+    firstRow = [];
     for (let i = 0; i < keywordLength; i++) {
-      firstRow.push("Column " + (i+1));
+      firstRow.push("Column " + (i + 1));
     }
-    arraySplit.push(firstRow)
+    arraySplit.push(firstRow);
     for (let i = 0; i < result.length; i++) {
       arraySplit.push(result[i].split(""));
     }
-    generateTableFromMatrix(arraySplit)
+    generateTableFromMatrix(arraySplit);
+    printArray(arraySplit);
   }
 }
 
 function isMultipleOfLength(str, num) {
   return str.length % num === 0;
+}
+
+function printArray(array2D) {
+  string = ""
+    for(let i = 0; i < array2D[0].length; i++){
+      for (let j = 0; j < array2D.length; j++) {
+        // Print the element at the second index (second column)
+        string += array2D[j][i];
+    }
+    console.log(string);
+    }
+    string = ""
 }
