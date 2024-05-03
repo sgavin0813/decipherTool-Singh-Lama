@@ -89,6 +89,7 @@ function getColumnString(array2D, columnIndex) {
 function createDivAndPrintChart(string, id) {
   const newDiv = document.createElement("div");
   newDiv.setAttribute("id", id);
+  newDiv.style.boxShadow = "2px 2px 5px #888888";
   document.getElementById("container_graph").appendChild(newDiv);
 
   const frequencies = calculateLetterFrequencies(string);
