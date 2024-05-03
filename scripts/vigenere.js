@@ -105,6 +105,12 @@ function calculateLetterFrequencies(text) {
 
 // Function to encrypt the input text using a keyword
 function encrypt() {
+  var cipherDiv = document.getElementById("cipherDiv");
+  if (cipherDiv.style.display === "none") {
+    cipherDiv.style.display = "block";
+  } else {
+    cipherDiv.style.display = "none";
+  }
   // Retrieve and preprocess input values
   var keyword = cleanAndUpperCase(document.getElementById("keyword").value);
   const inputText = cleanAndUpperCase(
@@ -125,16 +131,25 @@ function encrypt() {
   // Core decryption LOGIC
   encryptedText = addElements(keyword, inputText);
 
-  
   // Output the decrypted text with spaces
   document.getElementById("cipher-text").value = addSpaces(encryptedText);
 }
 
-// Function to Decrypt the CIPHER text using a keyword 
+// Function to Decrypt the CIPHER text using a keyword
 function decrypt() {
+
+  var plainDiv = document.getElementById("plainDiv");
+  if (plainDiv.style.display === "none") {
+    plainDiv.style.display = "block";
+  } else {
+    plainDiv.style.display = "none";
+  }
+
   // Retrieve and preprocess input values
   var keyword = cleanAndUpperCase(document.getElementById("keyword").value);
-  var cipherText = cleanAndUpperCase(document.getElementById("cipher-text").value);
+  var cipherText = cleanAndUpperCase(
+    document.getElementById("cipher-text").value
+  );
 
   // Show error message if keyword is empty
   var errorMessage = document.querySelector("#keyword-error-message");
@@ -167,50 +182,58 @@ function subtractElements(keyword, inputText) {
 function getLetterFrequencies(input, numAlphabets) {
   var frequencies = new Array(numAlphabets);
   for (var alphabetIndex = 0; alphabetIndex < numAlphabets; alphabetIndex++) {
-      frequencies[alphabetIndex] = new Array(26).fill(0); // Initialize frequency arrays with zeros
+    frequencies[alphabetIndex] = new Array(26).fill(0); // Initialize frequency arrays with zeros
   }
   for (var charIndex = 0; charIndex < input.length; charIndex++) {
-      var char = input.charAt(charIndex).toUpperCase();
-      var alphabetIndex = charIndex % numAlphabets; // Get the index of the alphabet array
-      if (/[A-Z]/.test(char)) {
-          frequencies[alphabetIndex][char.charCodeAt(0) - 'A'.charCodeAt(0)]++; 
-      }
+    var char = input.charAt(charIndex).toUpperCase();
+    var alphabetIndex = charIndex % numAlphabets; // Get the index of the alphabet array
+    if (/[A-Z]/.test(char)) {
+      frequencies[alphabetIndex][char.charCodeAt(0) - "A".charCodeAt(0)]++;
+    }
   }
   return frequencies;
 }
 
 function calculateIndexOfCoincidence(input) {
+  var iocDiv = document.getElementById("iocDiv");
+  if (iocDiv.style.display === "none") {
+    iocDiv.style.display = "block";
+  } else {
+    iocDiv.style.display = "none";
+  }
   var frequencies = getLetterFrequencies(input, 1);
   var totalLetters = input.length;
   var numerator = 0;
   for (var i = 0; i < 26; i++) {
-      numerator += frequencies[0][i] * (frequencies[0][i] - 1);
+    numerator += frequencies[0][i] * (frequencies[0][i] - 1);
   }
   var denominator = totalLetters * (totalLetters - 1);
   return numerator / denominator;
 }
 
-function iocCalculatorCipher(){
-  let cipherText = cleanAndUpperCase(document.getElementById("cipher-text").value);
-  if(cipherText.trim() != ""){
-    document.getElementById("ioc-text").value = calculateIndexOfCoincidence(cipherText);
+function iocCalculatorCipher() {
+  let cipherText = cleanAndUpperCase(
+    document.getElementById("cipher-text").value
+  );
+  if (cipherText.trim() != "") {
+    document.getElementById("ioc-text").value =
+      calculateIndexOfCoincidence(cipherText);
+  } else {
+    document.getElementById("ioc-text").value = "Eneter Cipher Text";
   }
-  else{
-    document.getElementById("ioc-text").value = "Eneter Cipher Text"
-  }
-} 
+}
 
-function iocCalculatoPlain(){
-  let plainText = cleanAndUpperCase(document.getElementById("plain-text").value);
-  if(plainText.trim() != ""){
-    document.getElementById("ioc-text").value = calculateIndexOfCoincidence(plainText);
+function iocCalculatoPlain() {
+  let plainText = cleanAndUpperCase(
+    document.getElementById("plain-text").value
+  );
+  if (plainText.trim() != "") {
+    document.getElementById("ioc-text").value =
+      calculateIndexOfCoincidence(plainText);
+  } else {
+    document.getElementById("ioc-text").value = "Eneter Plain Text above";
   }
-  else{
-    document.getElementById("ioc-text").value = "Eneter Plain Text above"
-  }
-} 
-
-
+}
 
 function chart(frequencies, location) {
   const letters = Object.keys(frequencies).sort();
@@ -337,12 +360,17 @@ function plainTextFrequency() {
 
   if (inputText.trim() != "") {
     // Hide the cipher text chart container
-    document.getElementById("chart-container-ciphertext").style.display = "none";
-    document.getElementById("chart-container-ciphertext-outside").style.display = "none";
+    document.getElementById("chart-container-ciphertext").style.display =
+      "none";
+    document.getElementById(
+      "chart-container-ciphertext-outside"
+    ).style.display = "none";
 
     // Show the plain text chart container
-    document.getElementById("chart-container-plaintext").style.display = "block";
-    document.getElementById("chart-container-plaintext-outside").style.display = "block";
+    document.getElementById("chart-container-plaintext").style.display =
+      "block";
+    document.getElementById("chart-container-plaintext-outside").style.display =
+      "block";
 
     const frequencies = calculateLetterFrequencies(inputText);
     chart(frequencies, "#chart-container-plaintext");
@@ -352,26 +380,25 @@ function plainTextFrequency() {
 }
 
 function cipherTextFrequency() {
-
   const cipherText = cleanAndUpperCase(
     document.getElementById("cipher-text").value
   );
   if (cipherText.trim() != "") {
     // Hide the plain text chart container
     document.getElementById("chart-container-plaintext").style.display = "none";
-    document.getElementById("chart-container-plaintext-outside").style.display = "none";
-    
+    document.getElementById("chart-container-plaintext-outside").style.display =
+      "none";
 
     // Show the cipher text chart container
-    document.getElementById("chart-container-ciphertext").style.display = "block";
-    document.getElementById("chart-container-ciphertext-outside").style.display = "block";
+    document.getElementById("chart-container-ciphertext").style.display =
+      "block";
+    document.getElementById(
+      "chart-container-ciphertext-outside"
+    ).style.display = "block";
 
     const frequencies = calculateLetterFrequencies(cipherText);
     chart(frequencies, "#chart-container-ciphertext");
   } else {
     console.log("Cipher Text is empty, can't calculate Frequency");
   }
-
 }
-
-

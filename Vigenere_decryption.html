@@ -50,16 +50,24 @@
       <div class="input-container">
         <button onclick="decrypt()">Decrypt</button>
         <button onclick="iocCalculatorCipher()">Index of Coincidence</button>
+        <button onclick="cipherTextFrequency()">Cipher Text Frequencies</button>
       </div>
       <div class="output-container">
-        <label for="ioc-text">index of coincidence:</label>
-        <textarea id="ioc-text" rows="1" readonly></textarea>
+        <div id="iocDiv" style="display: none">
+          <label for="ioc-text">Index of Coincidence:</label>
+          <input
+            id="ioc-text"
+            style="display: block; width: 50%"
+            rows="1"
+            readonly
+          />
+      </div>
+      <div id="plainDiv" style="display: none">
         <label for="plain-text">Decrypted Text:</label>
         <textarea id="plain-text" rows="5" readonly></textarea>
-      </div>
-      <div class="input-container">
-        <button onclick="plainTextFrequency()">Plain Text Frequencies</button>
-        <button onclick="cipherTextFrequency()">Cipher Text Frequencies</button>
+        <div class="input-container">
+          <button onclick="plainTextFrequency()">Plain Text Frequencies</button>
+        </div>
       </div>
       <div class="chart-container">
         <h4 id="chart-container-plaintext-outside" style="display: none;">Plain Text Frequencies</h4>

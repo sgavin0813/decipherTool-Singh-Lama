@@ -48,9 +48,6 @@ function removeNonAlphaChars(inputString) {
   return cleanedString.toUpperCase();
 }
 function keyGenerator(keyword_spaces, cipherText) {
-  console.log("Values recieved:")
-  console.log("keyword_spaces "+keyword_spaces)
-  console.log("cipherText" + cipherText)
   original_length = cipherText.length;
   for (let i = 0; i < keyword_spaces; i++) {
     cipherText = "#" + cipherText;
@@ -60,8 +57,8 @@ function keyGenerator(keyword_spaces, cipherText) {
 function subtractElements(key, ciphertext) {
   let result = "";
   for (let i = 0; i < ciphertext.length; i++) {
-    let char1 = key[i % key.length].toUpperCase();
-    let char2 = ciphertext[i].toUpperCase();
+    char1 = key[i] === "#" || key[i] === "-"? key[i] : key[i].toUpperCase();
+    char2 = ciphertext[i].toUpperCase();
 
     if (char1 === "#") {
       result += "-";
@@ -75,8 +72,8 @@ function subtractElements(key, ciphertext) {
 function addElements(key, plaintext) {
   let result = "";
   for (let i = 0; i < plaintext.length; i++) {
-    let char1 = key[i % key.length].toUpperCase();
-    let char2 = plaintext[i].toUpperCase();
+    let char1 = key[i];
+    let char2 = plaintext[i];
 
     if (char1 === "#") {
       result += "-";
@@ -112,7 +109,6 @@ function decryption() {
   cipherText = removeNonAlphaChars(cipherTextElement.value);
   keyword_spaces = keywordLengthElement.value;
   keyword = keyGenerator(keyword_spaces, cipherText);
-  console.log("keyword " + keyword)
   plainText = subtractElements(keyword, cipherText);
   createTables(cipherText, keyword, plainText);
 }
@@ -176,43 +172,46 @@ function createTables(inputString1, inputString2, inputString3) {
 
 function cellInputChanged(input) {
   // Get the unique ID of the input element
-  var uniqueId_1 = input.id;
-  uniqueId_2 = "";
-  uniqueId_3 = "";
-  var parts = uniqueId_1.split(",");
-
-  // "keyword changed"
-  if (parts[0] == 1) {
+  var uniqueId_of_cell = input.id;
+  console.log("uniqueId_of_cell "+ uniqueId_of_cell)
+  var unique_id_array = uniqueId_of_cell.split(",");
+  
+  // key changed 
+  if (unique_id_array[0] == 1) {
+    console.log("Key changed")
     //cipher
-    uniqueId_2 = "0," + parts[1] + "," + parts[2];
-    //plain text
-    uniqueId_3 = "2," + parts[1] + "," + parts[2];
+    uniqueId_0 = "0," + unique_id_array[1] + "," + unique_id_array[2];
 
-    key = document.getElementById(uniqueId_1).value.substring(0, 1).trim();
-    cipher = document.getElementById(uniqueId_2).value;
-    plain = document.getElementById(uniqueId_3).value.substring(0, 1).trim();
-    new_plain = subtractElements(key, cipher).substring(0, 1);
-    document.getElementById(uniqueId_1).value = key
-    document.getElementById(uniqueId_3).value = new_plain;
+    //Plain Text
+    uniqueId_2 = "2," + unique_id_array[1] + "," + unique_id_array[2];
+
+    key = document.getElementById(uniqueId_of_cell).value.trim();
+    cipher = document.getElementById(uniqueId_0).value;
+
+    console.log("cipher" + cipher);
+    console.log("key" + key);
+
+    new_plain = subtractElements(key, cipher).trim();
+    document.getElementById(uniqueId_2).value = new_plain;
 
 
   }
   // "plain changed"
-  else if (parts[0] == 2) {
+  else if (unique_id_array[0] == 2) {
     // "keyword"
-    uniqueId_2 = "1," + parts[1] + "," + parts[2];
+    uniqueId_2 = "1," + unique_id_array[1] + "," + unique_id_array[2];
     // "Cipher"
-    uniqueId_3 = "0," + parts[1] + "," + parts[2];
+    uniqueId_3 = "0," + unique_id_array[1] + "," + unique_id_array[2];
 
-    plain = document.getElementById(uniqueId_1).value.substring(0, 1).trim();
-    key = document.getElementById(uniqueId_2).value.substring(0, 1).trim();
-    cipher = document.getElementById(uniqueId_3).value;
+    plain = document.getElementById(uniqueId_of_cell).value.trim();
+    key = document.getElementById(uniqueId_2).value.trim();
+    cipher = document.getElementById(uniqueId_3).value.trim();
+
+    console.log("In Update Function");
+    console.log("cipher" + cipher);
+    console.log("plain" + plain);
 
     new_key = subtractElements(plain, cipher);
     document.getElementById(uniqueId_2).value = new_key;
-    document.getElementById(uniqueId_1).value = plain;
   }
-  document.getElementById(uniqueId_1).value;
-  document.getElementById(uniqueId_2).value;
-  document.getElementById(uniqueId_3).value;
 }

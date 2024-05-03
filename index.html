@@ -10,26 +10,32 @@
   <body>
     <ul>
       <li class="logo"><h3>Vigenѐre Encryptor</h3></li>
-    <li class="group-title">Vigenѐre </li>
-  
-      <li><a  href="index.html">Vigenѐre Encryptor</a></li>
+      <li class="group-title">Vigenѐre</li>
+
+      <li><a href="index.html">Vigenѐre Encryptor</a></li>
       <li><a href="Vigenere_decryption.html">Vigenѐre Decryptor</a></li>
       <li><a href="Vigenere_shifter.html">Vigenѐre Shifter</a></li>
       <li><a href="vigenere_depth.html">Vigenѐre Depth</a></li>
-  
-    <li class="group-title">Autokey</li>
+
+      <li class="group-title">Autokey</li>
       <li><a href="autokey_enc.html">Autokey Encryptor</a></li>
       <li><a href="autokey_decryptor.html">Autokey Extnd. Key Decryptor</a></li>
 
-    <li class="group-title">Running Key</li>
+      <li class="group-title">Running Key</li>
       <li><a href="crib_drag.html">Crib Dragger</a></li>
 
       <li class="group-title">Columnar Transposition</li>
-      <li><a href="columnar_encryption.html">Columnar transposition Encryptor</a></li>
-      <li><a href="columnar_decryption.html">Columnar transposition Decryptor</a></li>
-  </ul>
+      <li>
+        <a href="columnar_encryption.html">Columnar transposition Encryptor</a>
+      </li>
+      <li>
+        <a href="columnar_decryption.html">Columnar transposition Decryptor</a>
+      </li>
+    </ul>
     <div class="container">
-      <h2 style="color: #007bff; text-align: center" >Vigenère Cipher Encryptor</h2>
+      <h2 style="color: #007bff; text-align: center">
+        Vigenère Cipher Encryptor
+      </h2>
       <div class="input-container">
         <label for="keyword">Keyword:</label>
         <div
@@ -56,35 +62,51 @@
       <div class="input-container">
         <button onclick="encrypt()">Encrypt</button>
         <button onclick="iocCalculatoPlain()">Index of Coincidence</button>
-      </div>
-      <div class="output-container">
-        <label for="ioc-text">Index of Coincidence:</label>
-        <input id="ioc-text" style="display: block; width: 50%;" rows="1" readonly/>
-        <br/>
-        <br/>
-        <label for="cipher-text">Encrypted Text:</label>
-        <textarea id="cipher-text" rows="5" readonly></textarea>
-      </div>
-      <div class="input-container">
         <button onclick="plainTextFrequency()">Plain Text Frequencies</button>
-        <button onclick="cipherTextFrequency()">Cipher Text Frequencies</button>
       </div>
-      <div class="chart-container">
-        <h4 id="chart-container-plaintext-outside" style="display: none">
-          Plain Text Frequencies
-        </h4>
-        <div id="chart-container-plaintext"></div>
+      <div class="hideDefault">
+        <div class="output-container">
+          <div id="iocDiv" style="display: none">
+            <label for="ioc-text">Index of Coincidence:</label>
+            <input
+              id="ioc-text"
+              style="display: block; width: 50%"
+              rows="1"
+              readonly
+            />
+          </div>
+
+          <br />
+          <br />
+          <div id="cipherDiv" style="display: none">
+            <label for="cipher-text">Encrypted Text:</label>
+            <textarea id="cipher-text" rows="5" readonly></textarea>
+            <div class="input-container">
+              <button onclick="cipherTextFrequency()">
+                Cipher Text Frequencies
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="chart-container">
-        <h4 id="chart-container-ciphertext-outside" style="display: none">
-          Cipher Text Frequencies
-        </h4>
-        <div id="chart-container-ciphertext" class="chart-container"></div>
+      <div>
+        <div class="chart-container">
+          <h4 id="chart-container-plaintext-outside" style="display: none">
+            Plain Text Frequencies
+          </h4>
+          <div id="chart-container-plaintext"></div>
+        </div>
+        <div class="chart-container">
+          <h4 id="chart-container-ciphertext-outside" style="display: none">
+            Cipher Text Frequencies
+          </h4>
+          <div id="chart-container-ciphertext" class="chart-container"></div>
+        </div>
       </div>
     </div>
     <div class="footer">
       <p>Created by Nabin Lama and Gavin Singh for CSC 483</p>
-      </div>
+    </div>
     <script src="scripts/vigenere.js"></script>
   </body>
 </html>
